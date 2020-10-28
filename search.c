@@ -89,8 +89,8 @@ void search_file(Sorted_List *sList, File *file, char *dir, Dirent *dp) {
     if (!S_ISDIR(stats.st_mode)) {
         int distance = calcolate_distance(file->nameFile, path);
         char *full = calloc(sizeof(char), PATH_MAX);
-        realpath(path, full);
-        //_fullpath(full, path, PATH_MAX);
+        //realpath(path, full);
+        _fullpath(full, path, PATH_MAX);
         add(sList, new_element_list(dp->d_name, full, distance));
     } else {
         get_list_file(sList, file, path);
